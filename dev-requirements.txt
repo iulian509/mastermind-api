@@ -55,6 +55,8 @@ markupsafe==2.1.1
     #   -r requirements.txt
     #   jinja2
     #   werkzeug
+marshmallow==3.19.0
+    # via -r requirements.txt
 mccabe==0.7.0
     # via flake8
 mypy-extensions==0.4.3
@@ -63,7 +65,9 @@ nodeenv==1.7.0
     # via pre-commit
 packaging==21.3
     # via
+    #   -r requirements.txt
     #   build
+    #   marshmallow
     #   pytest
 pathspec==0.10.2
     # via black
@@ -84,7 +88,9 @@ pycodestyle==2.10.0
 pyflakes==3.0.1
     # via flake8
 pyparsing==3.0.9
-    # via packaging
+    # via
+    #   -r requirements.txt
+    #   packaging
 pytest==7.2.0
     # via -r dev-requirements.in
 pyyaml==6.0
