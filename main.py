@@ -2,6 +2,7 @@ from flask import Flask
 
 from mastermind.blueprints.status import status_bp
 from mastermind.blueprints.game import game_bp
+from mastermind.blueprints.board import board_bp
 from mastermind.common.database import db, init_db
 from mastermind.common.errors import setup_errors
 
@@ -11,6 +12,7 @@ def create_app():
     flask_app.config.from_object("settings.ProductionConfig")
     flask_app.register_blueprint(status_bp)
     flask_app.register_blueprint(game_bp)
+    flask_app.register_blueprint(board_bp)
     db.init_app(flask_app)
     init_db(flask_app)
 
