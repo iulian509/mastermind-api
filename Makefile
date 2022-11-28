@@ -29,3 +29,11 @@ dockerize: ### Build the docker image
 .PHONY: run
 run: ### Run the docker image
 	@docker run -p 8080:8080 -t mastermind
+
+.PHONY: test
+test: ### Run unit tests with Coverage and Pytest
+	. venv/bin/activate && coverage run -m pytest tests -vv && coverage report -m
+
+.PHONY: coverage-html
+coverage-html: ### HTML Coverage report
+	. venv/bin/activate && coverage html
