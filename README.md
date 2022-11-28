@@ -1,2 +1,2 @@
 # mastermind-api
-Masterming board game
+Mastermind board game

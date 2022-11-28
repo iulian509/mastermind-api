@@ -27,6 +27,16 @@ filelock==3.8.0
 flake8==6.0.0
     # via -r dev-requirements.in
 flask==2.2.2
+    # via
+    #   -r requirements.txt
+    #   flask-sqlalchemy
+flask-sqlalchemy==3.0.2
+    # via -r requirements.txt
+greenlet==2.0.1
+    # via
+    #   -r requirements.txt
+    #   sqlalchemy
+gunicorn==20.1.0
     # via -r requirements.txt
 identify==2.5.9
     # via pre-commit
@@ -79,6 +89,10 @@ pytest==7.2.0
     # via -r dev-requirements.in
 pyyaml==6.0
     # via pre-commit
+sqlalchemy==1.4.44
+    # via
+    #   -r requirements.txt
+    #   flask-sqlalchemy
 toml==0.10.2
     # via pre-commit
 virtualenv==20.16.7

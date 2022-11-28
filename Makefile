@@ -16,4 +16,16 @@ install: ### Set up local environment (linux / OSX)
 	python3 -m venv venv
 	venv/bin/pip install --upgrade pip
 	venv/bin/pip install -Ur dev-requirements.txt
-	. venv/bin/activate && pre-commit install 
+	. venv/bin/activate && pre-commit install
+
+.PHONY: dev
+dev: ### Run dev server
+	. venv/bin/activate && python3 main.py
+
+.PHONY: dockerize
+dockerize: ### Build the docker image
+	@docker build -t mastermind .
+
+.PHONY: run
+run: ### Run the docker image
+	@docker run -p 8080:8080 -t mastermind
