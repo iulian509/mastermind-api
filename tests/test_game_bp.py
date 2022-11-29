@@ -37,3 +37,13 @@ def test_create_game_incorrect_payload(test_client):
         headers={"Content-type": "application/json"},
     )
     assert resp.status_code == 400
+
+
+def test_create_game_incorrect_length(test_client):
+    data = {"code": "RGBYXX", "tries": 10}
+    resp = test_client.post(
+        "/game",
+        data=json.dumps(data),
+        headers={"Content-type": "application/json"},
+    )
+    assert resp.status_code == 400

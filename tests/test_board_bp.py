@@ -10,10 +10,16 @@ def game_fixture():
     create_game(data)
 
 
-def test_get_board(test_client):
+def test_get_board(test_client, game_fixture):
     game_id = 1
     resp = test_client.get(f"/board/{game_id}")
     assert resp.status_code == 200
+
+
+def test_get_board_dont_exist(test_client):
+    game_id = 2
+    resp = test_client.get(f"/board/{game_id}")
+    assert resp.status_code == 404
 
 
 def test_add_guess_incorrect_length(test_client, game_fixture):
@@ -71,7 +77,7 @@ def test_add_guess_empty_payload(test_client, game_fixture):
     assert resp.status_code == 400
 
 
-def test_add_guess_already_resolved(test_client, game_fixture):
+def test_add_guess_already_solved(test_client, game_fixture):
     game_id = 1
     data = {"guess": "RGBY"}
     resp = test_client.post(
