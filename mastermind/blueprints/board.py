@@ -15,6 +15,10 @@ board_bp = Blueprint("board", __name__)
 
 @board_bp.route("/board/<game_id>", methods=["GET"])
 def get_game_state(game_id):
+    game = get_game_info(game_id)
+    if not game:
+        abort(404)
+
     board = get_board_status(game_id)
 
     return jsonify(board)
