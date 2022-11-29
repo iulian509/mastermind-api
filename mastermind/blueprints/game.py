@@ -9,7 +9,9 @@ game_bp = Blueprint("game", __name__)
 def game():
     json_data = request.get_json()
 
-    if request.content_type != "application/json" or not json_data:
+    if request.content_type != "application/json" or (
+        "code" not in json_data and "max_tries" not in json_data
+    ):
         abort(400)
 
     resp = create_game(json_data)

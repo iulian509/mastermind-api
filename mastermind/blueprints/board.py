@@ -28,7 +28,7 @@ def get_game_state(game_id):
 def add_guess(game_id):
     json_data = request.get_json()
 
-    if request.content_type != "application/json" or not json_data:
+    if request.content_type != "application/json" or "guess" not in json_data:
         abort(400)
 
     game = get_game_info(game_id)
