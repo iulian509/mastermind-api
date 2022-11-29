@@ -33,7 +33,7 @@ def add_guess(game_id):
 
     game = get_game_info(game_id)
     board = get_board_status(game_id)
-    if game.solved or len(board) >= game.max_tries:
+    if not game or game.solved or len(board) >= game.max_tries:
         abort(400)
 
     check_code_is_guessed(game, json_data)
