@@ -23,8 +23,7 @@ def get_board_status(game_id):
 
 def check_code_is_guessed(game, json_data):
     if game.code == json_data["guess"]:
-        game.resolved = True
-        game.finished = True
+        game.solved = True
         board = validate_board_data(json_data, game, 4, 0)
         Board(board["guess"], board["game"], board["black_pegs"], board["white_pegs"])
         db.session.commit()
