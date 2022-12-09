@@ -70,8 +70,8 @@ def validate_board_data(json_data, game, black_pegs, white_pegs):
             {
                 "guess": json_data["guess"],
                 "game": game.id,
-                "black_pegs": white_pegs,
-                "white_pegs": black_pegs,
+                "black_pegs": black_pegs,
+                "white_pegs": white_pegs,
             }
         )
     except ValidationError as err:
